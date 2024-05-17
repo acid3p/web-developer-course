@@ -1,0 +1,12 @@
+* {
+    font-size: 30px;
+}
+
+.block {
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.text2 {
+    border: inherit;
+}
