@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 19</title>
+    <title>stage-1-task-19</title>
     <style>
         h1,
         h2,
@@ -84,6 +84,7 @@
             border: 1px solid black;
             display: flex;
             flex-direction: column;
+            transition: border-color 150ms ease-in;
         }
         .item__name{
             margin-bottom: 10px;
@@ -115,8 +116,14 @@
             font-size: 13px;
             color: black;
         }
+        .item:hover {
+            border-color: red;
+        }
+        .item:hover .item__bg,
+        .item:hover .item__footer {
+            background-color: red;
+        }
     </style>
-
 
     <div class="container">
         <div class="items">
@@ -137,8 +144,11 @@
     <style>
         .arrow{
             display: inline-flex;
+            transition: transform 150ms ease-in, color 150ms ease-in;
         }
         .arrow:hover{
+            transform: rotate(180deg);
+            color: red;
         }
     </style>
     <div class="container">
@@ -147,25 +157,31 @@
         </div>
     </div>
 
-
     <h2 class="heading">Задача 3. Облако</h2>
 
     <style>
         .cloud {
-            /* animation: ..... */
+            animation: float 5s infinite;
         }
 
-        /* @keyframes названиеАнимации {
-
-        } */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
     </style>
 
     <div class="container">
         <div class="cloud">
-            <img src="https://www.freeiconspng.com/uploads/rain-clouds-png-27.png" alt="">
+            <img src="https://www.freeiconspng.com/uploads/rain-clouds-png-27.png" alt="Cloud">
         </div>
     </div>
-
 
     <h2 class="heading">Задача 4. Stacked</h2>
 
@@ -192,18 +208,23 @@
 
         .stacked-card__card--1{
             background-color: red;
+            transform: rotate(2deg);
+            z-index: 3;
         }
 
         .stacked-card__card--2{
             background-color: blue;
+            transform: rotate(-2deg);
+            z-index: 2;
         }
 
         .stacked-card__card--3{
             background-color: yellow;
+            transform: rotate(4deg);
+            z-index: 1;
         }
 
     </style>
-
 
     <div class="container">
         <div class="stacked-cards">
