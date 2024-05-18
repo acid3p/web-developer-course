@@ -38,13 +38,37 @@
     </div>
 
     <script>
-
         const words = ['День','Том','Гость','Выборы','Солнце','Ход','Речь','Смена','Бизнес','Качество','Республика','Сердце','Администрация','Поезд','Работник','Ресурс','Часть','Изучение','Бок','Понимание','Животное','Утро','Правда','Личность','Звонок','Урок','Командир','Американец','Заседание','Образ'];
 
-        const list = document.querySelector('.list')
-        const input = document.querySelector('.search__input')
+        const list = document.querySelector('.list');
+        const input = document.querySelector('.search__input');
+        const searchBtn = document.querySelector('.search__btn');
+        const clearBtn = document.querySelector('.search__clear');
 
+        function createListItems(wordsArray) {
+            list.innerHTML = '';
+            wordsArray.forEach(word => {
+                const li = document.createElement('li');
+                li.textContent = word;
+                li.addEventListener('click', () => {
+                    li.classList.toggle('list__element--active');
+                });
+                list.appendChild(li);
+            });
+        }
 
+        createListItems(words);
+
+        searchBtn.addEventListener('click', () => {
+            const query = input.value.toLowerCase();
+            const filteredWords = words.filter(word => word.toLowerCase().includes(query));
+            createListItems(filteredWords);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            input.value = '';
+            createListItems(words);
+        });
     </script>
 </body>
 </html>
